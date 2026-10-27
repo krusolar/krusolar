@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "teaching_logs": {
+      "title": "Teaching Logs",
+      "description": "Collection of post-lesson reflection logs",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string" },
+        "subjectId": { "type": "string" },
+        "subjectCode": { "type": "string" },
+        "subjectName": { "type": "string" },
+        "className": { "type": "string" },
+        "period": { "type": "string" },
+        "topic": { "type": "string" },
+        "learningObjectives": { "type": "array", "items": { "type": "string" } },
+        "activitiesSummary": { "type": "string" },
+        "mediaAndTools": { "type": "string" },
+        "assessmentMethods": { "type": "array", "items": { "type": "string" } },
+        "studentStats": { "type": "object" },
+        "achievements": { "type": "string" },
+        "problems": { "type": "string" },
+        "solutions": { "type": "string" },
+        "isApproved": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "subjectId", "date", "topic"]
+    },
+    "subjects": {
+      "title": "Subjects",
+      "description": "Subjects taught by teacher",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "code": { "type": "string" },
+        "name": { "type": "string" },
+        "gradeLevel": { "type": "string" },
+        "classes": { "type": "array", "items": { "type": "string" } },
+        "periodsPerWeek": { "type": "number" },
+        "totalStudents": { "type": "number" },
+        "color": { "type": "string" }
+      },
+      "required": ["id", "code", "name"]
+    },
+    "settings": {
+      "title": "Teacher Profile Settings",
+      "description": "Teacher profile and app configurations",
+      "type": "object",
+      "properties": {
+        "profile": { "type": "object" }
+      }
+    },
+    "students": {
+      "title": "Student Roster",
+      "description": "List of students organized by classroom",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentNo": { "type": "number" },
+        "studentIdCode": { "type": "string" },
+        "prefix": { "type": "string" },
+        "firstName": { "type": "string" },
+        "lastName": { "type": "string" },
+        "className": { "type": "string" },
+        "gender": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["id", "studentNo", "firstName", "lastName", "className"]
+    },
+    "gradebooks": {
+      "title": "Gradebooks & Scores",
+      "description": "Student score records, assignments, and grade evaluations per subject and term",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "subjectId": { "type": "string" },
+        "subjectCode": { "type": "string" },
+        "subjectName": { "type": "string" },
+        "className": { "type": "string" },
+        "academicYear": { "type": "string" },
+        "config": { "type": "object" },
+        "assignments": { "type": "array" },
+        "studentScores": { "type": "object" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "subjectId", "className", "academicYear"]
+    }
+  }
+}

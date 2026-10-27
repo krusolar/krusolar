@@ -1,0 +1,346 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Prompt', 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    letter-spacing: -0.011em;
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Liquid Morphing Keyframe Animations */
+@keyframes liquid-float-1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1) rotate(120deg);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95) rotate(240deg);
+    border-radius: 30% 70% 70% 30% / 50% 60% 30% 70%;
+  }
+}
+
+@keyframes liquid-float-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(1.15) rotate(180deg);
+    border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+  }
+}
+
+@keyframes liquid-float-3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1) rotate(0deg);
+    border-radius: 30% 70% 50% 50% / 30% 30% 70% 70%;
+  }
+  50% {
+    transform: translate(50px, 30px) scale(1.05) rotate(-180deg);
+    border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake 0.35s ease-in-out;
+}
+
+/* Liquid Glass & Chromatic Glowing Box Utilities (Matching reference image) */
+.liquid-blob-1 {
+  animation: liquid-float-1 18s ease-in-out infinite;
+}
+
+.liquid-blob-2 {
+  animation: liquid-float-2 22s ease-in-out infinite;
+}
+
+.liquid-blob-3 {
+  animation: liquid-float-3 26s ease-in-out infinite;
+}
+
+/* Chromatic Glowing Rainbow Border Box (Light squircle with soft rainbow aura) */
+.glow-rainbow-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 28px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: #0f172a;
+  box-shadow: 
+    0 10px 25px -5px rgba(99, 102, 241, 0.08),
+    0 4px 10px -2px rgba(0, 0, 0, 0.03);
+  isolation: isolate;
+  transition: all 0.3s ease;
+}
+
+.glow-rainbow-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.25),
+    rgba(168, 85, 247, 0.2),
+    rgba(244, 63, 94, 0.2),
+    rgba(16, 185, 129, 0.2)
+  );
+  filter: blur(8px);
+  opacity: 0.5;
+  z-index: -1;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.glow-rainbow-card:hover::before {
+  opacity: 0.85;
+  filter: blur(10px);
+}
+
+.liquid-glass {
+  position: relative;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+  color: #0f172a;
+  box-shadow: 
+    -10px -10px 30px -15px rgba(59, 130, 246, 0.12),
+    10px -10px 30px -15px rgba(244, 63, 94, 0.12),
+    10px 10px 30px -15px rgba(16, 185, 129, 0.12),
+    -10px 10px 30px -15px rgba(139, 92, 246, 0.12),
+    0 10px 25px -5px rgba(0, 0, 0, 0.03),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 1);
+  transition: all 0.3s ease;
+}
+
+.liquid-glass:hover {
+  box-shadow: 
+    -12px -12px 35px -12px rgba(59, 130, 246, 0.22),
+    12px -12px 35px -12px rgba(244, 63, 94, 0.22),
+    12px 12px 35px -12px rgba(16, 185, 129, 0.22),
+    -12px 12px 35px -12px rgba(139, 92, 246, 0.22),
+    0 15px 30px -5px rgba(0, 0, 0, 0.05),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 1);
+}
+
+.liquid-glass-dark {
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.3), inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.liquid-glass-pill {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(248, 250, 252, 0.5));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: #0f172a;
+  box-shadow: 0 4px 15px -3px rgba(99, 102, 241, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.liquid-glass-input {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  color: #0f172a;
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease-in-out;
+}
+
+.liquid-glass-input::placeholder {
+  color: #94a3b8;
+}
+
+.liquid-glass-input:focus {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15), inset 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+}
+
+/* Print Styles - Ensure ONLY official report page is printed without web UI overlay or multi-page clipping */
+@media print {
+  /* 1. Hide non-printable elements completely using display:none */
+  .liquid-blob-container,
+  header,
+  aside,
+  nav,
+  footer,
+  button,
+  .no-print,
+  .print\:hidden,
+  [class*="print:hidden"] {
+    display: none !important;
+  }
+
+  /* 2. Reset height, max-height, overflow, and backgrounds on ALL containers */
+  html,
+  body,
+  #root,
+  #root > div,
+  main,
+  div,
+  section {
+    background: transparent !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    outline: none !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* 3. Pure white page base with visible overflow for multi-page document printing */
+  html, body {
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 4. Remove fixed modal overlays and position report at top */
+  .fixed,
+  .fixed.inset-0,
+  [class*="fixed"] {
+    position: static !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    max-height: none !important;
+    width: 100% !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+
+  /* 5. Format printable report specifically */
+  .printable-report,
+  .official-a4-sheet {
+    display: block !important;
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .printable-report *,
+  .official-a4-sheet * {
+    visibility: visible !important;
+  }
+
+  /* 6. Multi-page Table Printing Rules */
+  .printable-report table,
+  .official-a4-sheet table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    border: 1px solid #475569 !important;
+    margin-top: 12px !important;
+    margin-bottom: 12px !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+
+  .printable-report thead,
+  .official-a4-sheet thead {
+    display: table-header-group !important;
+  }
+
+  .printable-report tbody,
+  .official-a4-sheet tbody {
+    display: table-row-group !important;
+  }
+
+  .printable-report tr,
+  .official-a4-sheet tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .printable-report th,
+  .printable-report td,
+  .official-a4-sheet th,
+  .official-a4-sheet td {
+    border: 1px solid #64748b !important;
+    color: #000000 !important;
+    padding: 6px 8px !important;
+    background: #ffffff !important;
+  }
+
+  .printable-report th,
+  .official-a4-sheet th {
+    background-color: #f1f5f9 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Prevent signature blocks from splitting awkwardly */
+  .printable-report .grid,
+  .official-a4-sheet .grid,
+  .printable-report .space-y-12,
+  .official-a4-sheet .space-y-6 {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm 12mm 15mm;
+  }
+}
+
+
